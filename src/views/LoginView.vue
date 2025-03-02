@@ -68,7 +68,7 @@
 
       <p class="text-center text-sm text-gray-600">
         Don't have an account?
-        <a href="/notes-app/register" class="text-[#333] hover:underline"
+        <a href="/register" class="text-[#333] hover:underline"
           >Sign up</a
         >
       </p>
