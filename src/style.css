@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Handwritten";
+  src: url("./assets/font/handwritten/handwritten.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Handwritten";
+  src: url("./assets/font/handwritten/handwritten.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Handwritten";
+  src: url("./assets/font/handwritten/handwritten-bold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Doodle";
+  src: url("./assets/font/doodle/doodle.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: "Handwritten", sans-serif;
+  letter-spacing: 0.030em;
+  color: #333;
+}
+.font-doodle {
+  font-family: "Doodle", sans-serif;
+}
+.toast-enter-active,
+.toast-leave-active {
+  transition: transform 0.3s ease-in-out, opacity 0.3s;
+}
+
+.toast-enter-from,
+.toast-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.toast-enter-to,
+.toast-leave-from {
+  transform: translateX(0);
+  opacity: 1;
+}
