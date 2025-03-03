@@ -20,7 +20,7 @@ Follow these steps to get started with the project:
 ### 1️⃣ Clone the repository  
 
 ```sh
-git clone https://github.com/JessicaaSun/notes-app.git
+git clone https://github.com/JessicaaSun/notes-app-ui.git
 cd notes-app
 ```
 
