@@ -79,7 +79,7 @@
 
       <p class="text-center text-sm text-gray-600">
         Already have an account?
-        <a href="/login" class="text-[#333] hover:underline">Login</a>
+        <span @click="login" class="text-[#333] hover:underline">Login</span>
       </p>
     </form>
   </div>
@@ -130,6 +130,10 @@ const schema = yup.object({
     )
     .required("Password is required"),
 });
+
+const login = () => {
+  router.push("/login");
+};
 
 const togglePassword = () => {
   showPassword.value = !showPassword.value;

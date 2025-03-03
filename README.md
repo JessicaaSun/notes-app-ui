@@ -11,7 +11,7 @@ Welcome to **Note with Jess**, a simple and intuitive note-taking app built with
 - 📅 **Sort Notes** – Arrange notes by newest or oldest.  
 - ✏️ **Edit Notes** – Update any note as needed.  
 - ❌ **Delete Notes** – Remove unwanted notes.  
-- 🔐 **Authentication** – Login to access more features.  
+- 🔐 **Authentication** 
 
 ## 🛠 Installation  
 
@@ -20,7 +20,7 @@ Follow these steps to get started with the project:
 ### 1️⃣ Clone the repository  
 
 ```sh
-git clone https://github.com/JessicaaSun/notes-app.git
+git clone https://github.com/JessicaaSun/notes-app-ui.git
 cd notes-app
 ```
 
