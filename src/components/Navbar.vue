@@ -6,7 +6,7 @@
       <span v-if="isAuthenticated">Welcome, {{ user?.username }}</span>
     </div>
 
-    <div class="fixed left-1/2 transform -translate-x-1/2">
+    <div class="sticky left-1/2 transform -translate-x-1/2">
       <button
         @click="home"
         class="text-3xl cursor-pointer font-doodle font-bold"
