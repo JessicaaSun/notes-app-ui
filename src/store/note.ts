@@ -11,6 +11,7 @@ interface Note {
 
 interface NotesState {
   notes: Note[];
+  sortOrder: "newest" | "oldest";
 }
 
 const API_URL = "http://localhost:5018/api/note";
@@ -18,6 +19,7 @@ const API_URL = "http://localhost:5018/api/note";
 export const useNotesStore = defineStore("notes", {
   state: (): NotesState => ({
     notes: [],
+    sortOrder: "newest",
   }),
 
   actions: {
@@ -33,6 +35,7 @@ export const useNotesStore = defineStore("notes", {
         console.error("Error fetching filtered notes:", error);
       }
     },
+
     async getNoteById(id: number): Promise<Note | null> {
       try {
         const response = await axios.get<Note>(`${API_URL}/${id}`);
@@ -42,6 +45,7 @@ export const useNotesStore = defineStore("notes", {
         return null;
       }
     },
+
     sortNotes() {
       this.notes.sort((a: Note, b: Note) => {
         return this.sortOrder === "newest"
@@ -49,10 +53,11 @@ export const useNotesStore = defineStore("notes", {
           : a.createdAt - b.createdAt;
       });
     },
+
     async addNote(note: Omit<Note, "id" | "createdAt" | "updatedAt">) {
       try {
         const response = await axios.post<Note>(API_URL, note);
-        this.notes.push(response.data); 
+        this.notes.unshift(response.data);
         this.sortNotes();
       } catch (error) {
         console.error("Error adding note:", error);
@@ -66,7 +71,10 @@ export const useNotesStore = defineStore("notes", {
       try {
         const response = await axios.put<Note>(`${API_URL}/${id}`, updatedNote);
         const index = this.notes.findIndex((n: Note) => n.id === id);
-        if (index !== -1) this.notes[index] = response.data;
+        if (index !== -1) {
+          this.notes[index] = response.data;
+          this.sortNotes();
+        }
       } catch (error) {
         console.error(`Error updating note with ID ${id}:`, error);
       }
@@ -75,7 +83,7 @@ export const useNotesStore = defineStore("notes", {
     async deleteNote(id: number) {
       try {
         await axios.delete(`${API_URL}/${id}`);
-        this.notes = this.notes.filter((note) => note.id !== id);
+        this.notes = this.notes.filter((note: Note) => note.id !== id);
       } catch (error) {
         console.error(`Error deleting note with ID ${id}:`, error);
       }
