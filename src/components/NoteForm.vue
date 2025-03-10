@@ -73,6 +73,7 @@ const resetForm = () => {
   localTitle.value = "";
   localContent.value = "";
 };
+
 watch(
   () => props.title,
   (newValue) => (localTitle.value = newValue)
